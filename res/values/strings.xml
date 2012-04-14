@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Hello World, MainActivity!</string>
+    <string name="hello">Input URL of audiostream:</string>
     <string name="app_name">Media Player</string>
+    <string name="default_url">http://radiosilver.corbina.net:8000/silver128.mp3</string>
 
 </resources>
