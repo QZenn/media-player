@@ -32,7 +32,13 @@ public class MainActivity extends Activity {
         if(player.isPlaying()){
             player.stop();
             player.reset();
-//            playBtn.setText(R.string.buttonText_Play);
+            runOnUiThread(new Runnable() {
+                
+                public void run() {
+                    // TODO Auto-generated method stub
+                    playBtn.setText(R.string.buttonText_Play);
+                }
+            });
         }
         else{
             player.setAudioStreamType(AudioManager.STREAM_MUSIC);
@@ -59,8 +65,14 @@ public class MainActivity extends Activity {
                 e.printStackTrace();
             }
             player.start();
-//            playBtn.setText(R.string.buttonText_Stop);
-            
+            runOnUiThread(new Runnable() {
+
+                public void run() {
+                    // TODO Auto-generated method stub
+                    playBtn.setText(R.string.buttonText_Stop);
+                }
+            });
+
         }
     }
 
@@ -71,10 +83,7 @@ public class MainActivity extends Activity {
 //            buttonPress();
         }
     };
-    
-    
-    
-    
+
     Runnable playerJob = new Runnable(){
         public void run(){
             buttonPress();
