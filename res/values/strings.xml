@@ -3,6 +3,8 @@
 
     <string name="hello">Input URL of audiostream:</string>
     <string name="app_name">Media Player</string>
-    <string name="default_url">http://radiosilver.corbina.net:8000/silver128.mp3</string>
+    <string name="default_url">"file:///sdcard/testfile1.mp3"</string>
+    <string name="buttonText_Play">Play</string>
+    <string name="buttonText_Stop">Stop</string>
 
 </resources>
