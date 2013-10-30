@@ -1,7 +1,5 @@
 package ru.qzenn.mediaplayer;
 
-import java.io.IOException;
-
 import android.app.Activity;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -11,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import java.io.IOException;
 
 public class MainActivity extends Activity {
     EditText urlText;
@@ -27,7 +26,7 @@ public class MainActivity extends Activity {
         urlText.setText(R.string.default_url);
         player = new MediaPlayer();
     }
-    
+
     private void buttonPress() {
         if(player.isPlaying()){
             player.stop();
