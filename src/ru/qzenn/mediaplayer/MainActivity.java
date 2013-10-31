@@ -20,7 +20,8 @@ public class MainActivity extends Activity {
     MediaPlayer player;
     Button playBtn;
     Button downloadBtn;
-    
+    Thread workingThread = null;
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -105,4 +106,22 @@ public class MainActivity extends Activity {
             buttonPlayPress();
         }
     };
+    
+    
+    public class WorkingThreadMethod implements Runnable
+    {
+        private boolean threadRunning = true;
+        
+        public void stopThread()
+        {
+            threadRunning = false;
+        }
+        
+        public void run() {
+            // TODO Auto-generated method stub
+            while(threadRunning)
+            {
+                
+            }
+        }}
 }
