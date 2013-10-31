@@ -1,6 +1,8 @@
 package ru.qzenn.mediaplayer;
 
 import android.app.Activity;
+import android.app.DownloadManager;
+import android.app.DownloadManager.Request;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -13,8 +15,12 @@ import java.io.IOException;
 
 public class MainActivity extends Activity {
     EditText urlText;
+    EditText remoteLink;
+    DownloadManager downloadMgr;
     MediaPlayer player;
     Button playBtn;
+    Button downloadBtn;
+    
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,17 +30,19 @@ public class MainActivity extends Activity {
         playBtn.setOnClickListener(playAction);
         urlText = (EditText)findViewById(R.id.urlEditText);
         urlText.setText(R.string.default_url);
+        remoteLink = (EditText)findViewById(R.id.remoteLinkEdit);
+        remoteLink.setText(R.string.downloadLink);
+        downloadBtn = (Button)findViewById(R.id.buttonDownload);
+        downloadBtn.setOnClickListener(downloadAction);
         player = new MediaPlayer();
     }
 
-    private void buttonPress() {
+    private void buttonPlayPress() {
         if(player.isPlaying()){
             player.stop();
             player.reset();
             runOnUiThread(new Runnable() {
-                
                 public void run() {
-                    // TODO Auto-generated method stub
                     playBtn.setText(R.string.buttonText_Play);
                 }
             });
@@ -65,9 +73,7 @@ public class MainActivity extends Activity {
             }
             player.start();
             runOnUiThread(new Runnable() {
-
                 public void run() {
-                    // TODO Auto-generated method stub
                     playBtn.setText(R.string.buttonText_Stop);
                 }
             });
@@ -83,9 +89,20 @@ public class MainActivity extends Activity {
         }
     };
 
+    private OnClickListener downloadAction = new OnClickListener(){
+        public void onClick(View v){
+            downloadMgr = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+            Request request = new Request(
+                    Uri.parse(remoteLink.getText().toString())
+                    );
+            downloadMgr.enqueue(request);
+            
+        }
+    };
+
     Runnable playerJob = new Runnable(){
         public void run(){
-            buttonPress();
+            buttonPlayPress();
         }
     };
 }

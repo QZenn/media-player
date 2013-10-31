@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="hello">Input URL of audiostream:</string>
     <string name="app_name">Media Player</string>
     <string name="default_url">"file:///sdcard/testfile1.mp3"</string>
     <string name="buttonText_Play">Play</string>
     <string name="buttonText_Stop">Stop</string>
-
+    <string name="buttonDownload">Download</string>
+    <string name="downloadLink">http://www.uis-test.narod.ru/sounds/money.mp3</string>
 </resources>
