@@ -1,7 +1,0 @@
-# Exclude generated files
-gen/
-bin/
-# Exclude Eclipse files
-.classpath
-.project
-.settings/
